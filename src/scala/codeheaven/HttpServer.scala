@@ -1,4 +1,4 @@
-package scala.codeheaven
+package codeheaven
 
 import java.net.{Socket, ServerSocket}
 import java.io.{OutputStreamWriter, InputStreamReader, BufferedReader, PrintWriter}
