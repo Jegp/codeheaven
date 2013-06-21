@@ -19,7 +19,7 @@ object HttpServer {
       writer.println("Accept: */*")
       writer.println("User-Agent: Java") // Be honest.
       writer.println("Content-Length: 11")
-      writer.println() // Important, else the server will expect that there's more into the request.
+      writer.println() // Important, else the server will expect that there's more into the requestStream.
       writer.print("Hello world")
       writer.flush()
 
