@@ -12,10 +12,20 @@ object Dispatcher {
   def apply(socket : Socket) {
 
     val f = future {
-      val endpoint = NetworkUtil.parseHttpRequest(socket.getInputStream)
-      Fetcher(socket.getOutputStream, endpoint)
+
+      //retrieve strin from buffer
+      val buffer : Array[Byte] = new Array[Byte](500)
+      socket.getInputStream.read(buffer)
+      val request = new String(buffer)
+
+      //retrieve path from http request
+      val path = NetworkUtil.getHttpPath(request)
+      //retrieve method from http request
+      val httpMethod = NetworkUtil.getHttpMethod(request)
+
+      //TO-DO: Case scenario based on method
+      Fetcher(socket.getOutputStream, path)
 
     }
   }
-
 }
