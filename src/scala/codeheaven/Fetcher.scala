@@ -13,7 +13,6 @@ object Fetcher {
    */
   def apply(outputStream : OutputStream, path : String) {
     //Retrieve file from OS
-    println(path)
     val html = Source.fromFile(path, "UTF-8").mkString
 
     //Create writer on socket and start writing to the body
