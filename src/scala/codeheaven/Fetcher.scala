@@ -8,7 +8,7 @@ import java.io.{File, OutputStream, OutputStreamWriter, PrintWriter}
 
 object Fetcher {
 
-  val root : String = new File("").getAbsolutePath + File.separator + "www\\" + File.separator
+  val root : String = new File("").getAbsolutePath + File.separator + "www" + File.separator
 
   /*
    * Probably not needed to thread this. Remove next commit.
