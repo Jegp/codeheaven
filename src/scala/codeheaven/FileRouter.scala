@@ -1,17 +1,16 @@
 package codeheaven
 
+import java.io.File
+
 /**
- * Created with IntelliJ IDEA.
- * User: Daniel Varab
- * Date: 21-06-13
- * Time: 19:32
- * To change this template use File | Settings | File Templates.
+ * A router that maps HTTP requests to files
  */
 object FileRouter {
+
   def apply(route : String) : String = route match{
-    case "/" => "html\\index.html"
-    case "/login" => "html\\login.html"
-    case "/cage" => "html\\login.html" // nonesense yes.
+    case "/" | "" => "index.html"
+    case "/login" => "login.html"
+    case "/cage" => "login.html" // nonesense yes.
   }
 
 }
