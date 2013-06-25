@@ -8,9 +8,9 @@ import java.io.File
 object FileRouter {
 
   def apply(route : String) : String = route match{
-    case "/" | "" => "index.html"
-    case "/login" => "login.html"
-    case "/cage" => "login.html" // nonesense yes.
+    case "/" | "" => "html\\index.html"
+    case "/login" => "html\\login.html"
+    case "/cage" => "html\\login.html" // nonesense yes.
   }
 
 }
