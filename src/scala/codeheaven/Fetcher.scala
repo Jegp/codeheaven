@@ -8,15 +8,13 @@ import java.io.{File, OutputStream, OutputStreamWriter, PrintWriter}
 
 object Fetcher {
 
-  val root : String = new File("").getAbsolutePath + File.separator + "www" + File.separator
-
   /*
    * Probably not needed to thread this. Remove next commit.
    */
   def apply(outputStream : OutputStream, path : String) {
     //Retrieve file from OS
-    println(root + path)
-    val html = Source.fromFile(root + path, "UTF-8").mkString
+    println(path)
+    val html = Source.fromFile(path, "UTF-8").mkString
 
     //Create writer on socket and start writing to the body
     val writer = new PrintWriter(new OutputStreamWriter(outputStream))

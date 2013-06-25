@@ -7,10 +7,14 @@ import java.io.File
  */
 object FileRouter {
 
-  def apply(route : String) : String = route match{
+  val root : String = new File("").getAbsolutePath + File.separator + "www" + File.separator
+
+  def apply(route : String) : String = root + (
+    route match{
     case "/" | "" => "index.html"
-    case "/login" => "login.html"
-    case "/cage" => "login.html" // nonesense yes.
-  }
+    case file : String if new File(root + file).exists() => file
+    case file : String if new File(root + file + ".html").exists() => file + ".html"
+    case _ => "404.html"
+  })
 
 }
