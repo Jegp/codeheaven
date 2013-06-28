@@ -6,7 +6,7 @@ import ExecutionContext.Implicits.global
 import java.net.{Socket, ServerSocket}
 import java.io.{File, OutputStream, OutputStreamWriter, PrintWriter}
 
-object Fetcher {
+object FileFetcher {
 
   /*
    * Probably not needed to thread this. Remove next commit.

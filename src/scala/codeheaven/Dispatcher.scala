@@ -26,7 +26,7 @@ object Dispatcher {
       println("Request: Path - " + path + " HTTP Method - " + httpMethod)
 
       httpMethod match {
-        case "GET" => Fetcher(socket.getOutputStream, path)
+        case "GET" => FileFetcher(socket.getOutputStream, path)
           //ugly ass code.. but its there to work until data module has been written
           //for real implementation references to a data post method which should return a redirection
           //status code (300-400)
@@ -43,7 +43,7 @@ object Dispatcher {
           writer.flush
           stream.close
         }
-        case _ => Fetcher(socket.getOutputStream, "ERROR") //String is for simplicity, should be routed to the "else" case in the fetcher
+        case _ => FileFetcher(socket.getOutputStream, "ERROR") //String is for simplicity, should be routed to the "else" case in the fetcher
       }
     }
 
